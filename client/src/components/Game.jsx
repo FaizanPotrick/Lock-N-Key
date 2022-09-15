@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./game.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Question from "./Questions";
 const Game = () => {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/final");
-  };
-  const [questions, setQuestions] = useState(null);
-  useEffect(() => {
-    const url = "/user/question";
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setQuestions(data.questions)
-      })
-      .catch((err) => console.log(err));
-  }, []);
   return (
     <div className="bg_img">
       <div
@@ -152,14 +138,10 @@ const Game = () => {
           {/* second row  */}
 
           {/* second row completed */}
-          <Question questions={questions}/>
-          <button
-            className="startBtn px-4 py-2 mt-4"
-            onClick={handleClick}
-            type="submit"
-          >
+          <Question />
+          <Link to="/final" className="startBtn px-4 py-2 mt-4">
             FINAL
-          </button>
+          </Link>
         </div>
       </div>
     </div>

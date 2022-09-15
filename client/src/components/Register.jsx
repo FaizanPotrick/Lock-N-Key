@@ -4,13 +4,13 @@ import { useNavigate, Link } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
   const [team, setTeam] = useState({
-    teamName: "",
-    email: "",
+    team_name: "",
+    email_address: "",
     password: "",
   });
   const register = async (e) => {
     e.preventDefault();
-    const response = await fetch("/user/register", {
+    const response = await fetch("/api/user/registration", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,12 @@ const Register = () => {
       body: JSON.stringify(team),
     });
     if (response.status === 200) {
-      navigate("/login");
+      setTeam({
+        team_name: "",
+        email_address: "",
+        password: "",
+      });
+      navigate("/game");
     }
   };
   const onChange = (e) => {
@@ -42,20 +47,20 @@ const Register = () => {
               className="team-name w-50 p-2"
               placeholder="ENTER YOUR TEAM NAME"
               type="text"
-              name="teamName"
+              name="team_name"
               onChange={onChange}
-              value={team.teamName}
+              value={team.team_name}
             />
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center my-4">
-            <label className="py-2 text-white">EMAIL</label>
+            <label className="py-2 text-white">EMAIL ADDRESS</label>
             <input
               className="team-name w-50 p-2"
               placeholder="ENTER YOUR TEAM MAIL"
               type="text"
-              name="email"
+              name="email_address"
               onChange={onChange}
-              value={team.email}
+              value={team.email_address}
             />
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center my-4">

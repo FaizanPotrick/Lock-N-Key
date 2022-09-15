@@ -86,8 +86,8 @@ router.get("/api/user/questions", async (req, res) => {
 });
 
 router.post("/api/user/submit", async (req, res) => {
-  const { answer } = req.body;
   const { user_id } = req.cookies;
+  const { answer } = req.body;
   try {
     const user_response = await User.findById(user_id);
     if (user_response.attempted === true) {

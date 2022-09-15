@@ -4,19 +4,23 @@ import { useNavigate, Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const [team, setTeam] = useState({
-    email: "",
+    email_address: "",
     password: "",
   });
   const login = async (e) => {
     e.preventDefault();
-    const response = await fetch("/user/login", {
-      method: "POST",
+    const response = await fetch("/api/user/login", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(team),
     });
     if (response.status === 200) {
+      setTeam({
+        email_address: "",
+        password: "",
+      });
       navigate("/game");
     }
   };
@@ -36,14 +40,14 @@ const Login = () => {
         >
           <img className="security py-2" src="images/login.png" alt="" />
           <div className="d-flex flex-column justify-content-center align-items-center my-4">
-            <label className="py-2 text-white">TEAM EMAIL</label>
+            <label className="py-2 text-white">TEAM MAIL</label>
             <input
               className="team-name w-50 p-2"
               placeholder="ENTER YOUR TEAM EMAIL"
               type="text"
-              name="email"
+              name="email_address"
               onChange={onChange}
-              value={team.email}
+              value={team.email_address}
             />
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center my-4">
