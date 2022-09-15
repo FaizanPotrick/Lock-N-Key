@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./game.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Question from "./Questions";
+import Cookies from "js-cookie";
 const Game = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!Cookies.get("user_id")) {
+      navigate("/login");
+    }
+  }, [navigate]);
   return (
     <div className="bg_img">
       <div
@@ -139,9 +146,11 @@ const Game = () => {
 
           {/* second row completed */}
           <Question />
-          <Link to="/final" className="startBtn px-4 py-2 mt-4">
-            FINAL
-          </Link>
+          <div className="mt-5">
+            <Link to="/final" className="startBtn px-4 py-2">
+              FINAL
+            </Link>
+          </div>
         </div>
       </div>
     </div>

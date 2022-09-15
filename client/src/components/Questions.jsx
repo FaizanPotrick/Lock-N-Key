@@ -12,32 +12,46 @@ const Question = () => {
   }, []);
 
   return (
-    <div className="mt-4">
-      <img
-        src={questions[0]}
-        alt=""
-        className="p-2"
-        style={{
-          width: "200px",
-          height: "200px",
-        }}
-      />
-      <div className="d-flex gap-4 justify-content-center">
+    <div
+      id="carouselExampleControls"
+      className="carousel mt-4"
+      data-bs-ride="carousel"
+    >
+      <div className="carousel-inner">
         {questions &&
-          questions.map((question, idx) => {
+          questions.map((question, index) => {
             return (
-              <a
-                href={question}
-                key={idx}
-                className="btn btn-success px-4"
-                target="_blank"
-                rel="noreferrer"
+              <div
+                className={`carousel-item ${index === 0 ? "active" : ""}`}
+                key={index}
               >
-                Question {idx + 1}
-              </a>
+                <img
+                  className="key img-fluid"
+                  src={question}
+                  alt="..."
+                  style={{ height: "50%", width: "50%" }}
+                />
+              </div>
             );
           })}
       </div>
+
+      <button
+        className="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span className="carousel-control-prev-icon" aria-hidden="true" />
+      </button>
+      <button
+        className="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span className="carousel-control-next-icon" aria-hidden="true" />
+      </button>
     </div>
   );
 };

@@ -76,13 +76,8 @@ router.put("/api/user/login", async (req, res) => {
 
 router.get("/api/user/questions", async (req, res) => {
   const { user_id } = req.cookies;
-  try {
-    const user_response = await User.findById(user_id);
-    res.status(200).json(Questions[user_response.answer]);
-  } catch (error) {
-    console.log(error);
-    res.status(400).json("Invalid Request");
-  }
+  const user_response = await User.findById(user_id);
+  res.json(Questions[user_response.answer]);
 });
 
 router.post("/api/user/submit", async (req, res) => {

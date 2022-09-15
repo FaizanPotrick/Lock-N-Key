@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import "./final.css";
 
 const Final = () => {
   const navigate = useNavigate();
+
   const [colorCode, setColorcode] = useState("");
 
   const final = async (e) => {
@@ -20,6 +22,12 @@ const Final = () => {
       navigate("/");
     }
   };
+
+  useEffect(() => {
+    if (!Cookies.get("user_id")) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   return (
     <div className="bg_img">
