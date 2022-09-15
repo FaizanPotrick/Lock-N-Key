@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 const Game = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (!Cookies.get("user_id")) {
+    if (Cookies.get("user_id") === undefined || Cookies.get("user_id") === "") {
       navigate("/login");
     }
   }, [navigate]);

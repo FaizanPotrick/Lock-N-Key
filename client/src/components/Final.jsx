@@ -22,7 +22,7 @@ const Final = () => {
   };
 
   useEffect(() => {
-    if (!Cookies.get("user_id")) {
+    if (Cookies.get("user_id") === undefined || Cookies.get("user_id") === "") {
       navigate("/login");
     }
   }, [navigate]);

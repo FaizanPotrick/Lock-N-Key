@@ -77,6 +77,9 @@ router.put("/api/user/login", async (req, res) => {
 router.get("/api/user/questions", async (req, res) => {
   const { user_id } = req.cookies;
   const user_response = await User.findById(user_id);
+  if (user_response === null) {
+    return res.status(201).json("Invalid Credential");
+  }
   res.json(Questions[user_response.answer]);
 });
 
