@@ -10,17 +10,15 @@ const Final = () => {
 
   const final = async (e) => {
     e.preventDefault();
-    const response = await fetch("/api/user/submit", {
+    await fetch("/api/user/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ answer: colorCode }),
     });
-    if (response.status === 200) {
-      setColorcode("");
-      navigate("/");
-    }
+    setColorcode("");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -50,6 +48,8 @@ const Final = () => {
               name="colorCode"
               onChange={(e) => setColorcode(e.target.value)}
               value={colorCode}
+              maxLength="6"
+              minLength="6"
               required
             />
             <button className="startBtn px-4 py-1 my-3" type="submit">

@@ -49,6 +49,7 @@ const Register = () => {
               type="text"
               name="team_name"
               onChange={onChange}
+              maxLength="20"
               value={team.team_name}
             />
           </div>
@@ -60,6 +61,7 @@ const Register = () => {
               type="text"
               name="email_address"
               onChange={onChange}
+              maxLength="30"
               value={team.email_address}
             />
           </div>
@@ -71,6 +73,7 @@ const Register = () => {
               type="password"
               name="password"
               onChange={onChange}
+              maxLength="10"
               value={team.password}
             />
           </div>
