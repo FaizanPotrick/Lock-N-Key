@@ -86,13 +86,13 @@ router.post("/api/user/submit", async (req, res) => {
   try {
     const user_response = await User.findById(user_id);
     if (user_response.attempted === true) {
-      return res.status(201).json("Already Attempted");
+      return res.status(201).clearCookie("user_id").json("Already Attempted");
     }
     await User.findByIdAndUpdate(user_id, {
       attempted: true,
       is_winner: user_response.answer === answer ? true : false,
     });
-    res.status(200).json("Successfully Submitted");
+    res.status(200).clearCookie("user_id").json("Successfully Submitted");
   } catch (error) {
     console.log(error);
     res.status(400).json("Invalid Request");
