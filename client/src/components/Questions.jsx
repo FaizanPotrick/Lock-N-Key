@@ -12,11 +12,7 @@ const Question = () => {
   }, []);
 
   return (
-    <div
-      id="carouselExampleControls"
-      className="carousel mt-4"
-      data-bs-ride="carousel"
-    >
+    <div id="carouselExampleControls" className="carousel mt-4">
       <div className="carousel-inner">
         {questions &&
           questions.map((question, index) => {
@@ -42,7 +38,10 @@ const Question = () => {
         data-bs-target="#carouselExampleControls"
         data-bs-slide="prev"
       >
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
+        <span
+          className="carousel-control-prev-icon bg-success px-4 py-5 rounded"
+          aria-hidden="true"
+        />
       </button>
       <button
         className="carousel-control-next"
@@ -50,7 +49,10 @@ const Question = () => {
         data-bs-target="#carouselExampleControls"
         data-bs-slide="next"
       >
-        <span className="carousel-control-next-icon" aria-hidden="true" />
+        <span
+          className="carousel-control-next-icon bg-success px-4 py-5 rounded"
+          aria-hidden="true"
+        />
       </button>
     </div>
   );

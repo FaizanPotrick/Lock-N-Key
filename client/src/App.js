@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Game from "./components/Game";
 import Final from "./components/Final";
+import Admin from "./components/Admin";
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/game" element={<Game />}></Route>
           <Route path="/final" element={<Final />}></Route>
+          <Route path="/faizanyash" element={<Admin />}></Route>
         </Routes>
       </Router>
     </div>
