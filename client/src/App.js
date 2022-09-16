@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Game from "./components/Game";
 import Final from "./components/Final";
 import Admin from "./components/Admin";
+import Users from "./components/USers";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/game" element={<Game />}></Route>
           <Route path="/final" element={<Final />}></Route>
           <Route path="/faizanyash" element={<Admin />}></Route>
+          <Route path="/yashfaizan" element={<Users />}></Route>
         </Routes>
       </Router>
     </div>
