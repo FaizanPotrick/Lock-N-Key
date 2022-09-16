@@ -6,7 +6,7 @@ import Register from "./components/Register";
 import Game from "./components/Game";
 import Final from "./components/Final";
 import Admin from "./components/Admin";
-import Users from "./components/USers";
+import Users from "./components/Users";
 
 function App() {
   return (
