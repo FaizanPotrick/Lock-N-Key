@@ -41,5 +41,5 @@ const UserSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.connection
-  .useDB("LocknKey")
+  .useDb("LocknKey")
   .model("User", UserSchema);
